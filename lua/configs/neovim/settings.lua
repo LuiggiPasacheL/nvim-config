@@ -18,6 +18,7 @@ vim.opt.foldmethod     = "indent"
 vim.opt.foldenable     = true
 vim.opt.foldlevel      = 99
 
+-- Enable treesitter highlight after 100ms vimEnter
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
     callback = function()
         local function f()
@@ -36,9 +37,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+-- On LspAttach enable autoformatting
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach-format', { clear = true }),
-    -- This is where we attach the autoformatting for reasonable clients
     callback = function(args)
         local client_id = args.data.client_id
         local client = vim.lsp.get_client_by_id(client_id)

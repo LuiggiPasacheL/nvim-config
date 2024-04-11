@@ -22,8 +22,7 @@ vim.keymap.set('n', "<leader>E", "<CMD>Oil<CR>")
 
 -- Git
 vim.keymap.set('n', "<leader>g", "<CMD>vertical rightbelow G<CR>")
-vim.keymap.set('n', "<leader>gh", "<CMD>Telescope git_branches<CR>")
-vim.keymap.set('n', "<leader>gl", "<CMD>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
+vim.keymap.set('n', "<leader>lg", "<CMD>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
     { desc = "Tmux Git Go" })
 
 -- Telescope
