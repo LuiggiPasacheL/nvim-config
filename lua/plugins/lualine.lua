@@ -21,7 +21,7 @@ local lsp_component = {
         for _ in pairs(vim.lsp.get_active_clients()) do count = count + 1 end
         return count > 0
     end,
-    on_click = function ()
+    on_click = function()
         vim.cmd([[LspInfo]])
     end
 }

@@ -1,2 +1,1 @@
-
 vim.opt.backup = false

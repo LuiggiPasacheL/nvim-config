@@ -48,7 +48,7 @@ local term = "zsh"
 if vim.loop.os_uname().sysname == "Windows_NT" then
     term = "powershell"
 end
-vim.keymap.set('n', "<leader>nt", "<cmd>vsplit term://".. term .. "<CR>")
-vim.keymap.set('n', "<leader>Nt", "<cmd>tabnew term://".. term .. "<CR>")
+vim.keymap.set('n', "<leader>nt", "<cmd>vsplit term://" .. term .. "<CR>")
+vim.keymap.set('n', "<leader>Nt", "<cmd>tabnew term://" .. term .. "<CR>")
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
