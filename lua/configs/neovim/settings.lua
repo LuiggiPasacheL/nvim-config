@@ -8,11 +8,6 @@ vim.opt.mouse          = 'a'
 vim.opt.background     = "dark"
 vim.opt.showmode       = false
 
-vim.opt.list           = true
-vim.o.listchars        = 'trail:·,nbsp:+,tab:▏ '
-
-vim.opt.inccommand     = 'split'
-
 vim.opt.fillchars      = { fold = " " }
 vim.opt.foldmethod     = "indent"
 vim.opt.foldenable     = true
