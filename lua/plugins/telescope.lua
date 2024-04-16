@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
+    tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         local telescope = require("telescope")
@@ -9,9 +9,6 @@ return {
         telescope.setup({
             defaults = {
                 mappings = {
-                    n = {
-                        ["kj"] = "close",
-                    },
                     i = {
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
@@ -24,6 +21,16 @@ return {
                 },
             }
         })
+
+        -- Telescope
+        vim.keymap.set('n', "<C-p>", "<CMD>Telescope git_files<cr>")
+        vim.keymap.set('n', "<C-f>", "<CMD>Telescope find_files<cr>")
+        vim.keymap.set('n', "<C-g>", "<CMD>Telescope live_grep<cr>")
+        vim.keymap.set('n', "<C-A-o>", "<CMD>Telescope treesitter<cr>")
+        vim.keymap.set('n', "<leader><leader>", "<CMD>Telescope buffers<cr>")
+        vim.keymap.set('n', "<leader>o", "<CMD>Telescope treesitter<cr>")
+        vim.keymap.set('n', "<leader>t", "<CMD>TodoTelescope<cr>")
+        vim.keymap.set('n', "<leader>cc", "<CMD>Telescope colorscheme<cr>")
     end,
     cond = Not_vscode()
 }

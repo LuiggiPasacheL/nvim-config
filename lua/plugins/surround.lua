@@ -8,6 +8,7 @@ return {
             -- ys -> to add
             -- ds -> to delete
             -- cs -> to replace
+            -- S -> to add in visual mode
         })
     end
 }
