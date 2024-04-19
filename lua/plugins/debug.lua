@@ -77,21 +77,48 @@ return {
         }
 
         -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-        vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
+        vim.keymap.set('n', '<F4>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
         dap.listeners.after.event_initialized['dapui_config'] = dapui.open
         dap.listeners.before.event_terminated['dapui_config'] = dapui.close
         dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-        -- Install golang specific config
-        require('dap-go').setup()
+        local path_delve = "dlv"
+        if vim.loop.os_uname().sysname == "Windows_NT" then
+            path_delve = vim.fn.expand("$HOME") .. "\\AppData\\Local\\nvim-data\\mason\\bin\\dlv.cmd"
+        end
 
-        dap.adapters.go = {
-            type = "server",
-            port = 38697,
-            executable = {
-                command = "dlv",
-                args = { "dap", "-l", "127.0.0.1:38697" },
+        -- Install golang specific config
+        require('dap-go').setup({
+            -- Additional dap configurations can be added.
+            -- dap_configurations accepts a list of tables where each entry
+            -- represents a dap configuration. For more details do:
+            -- :help dap-configuration
+            -- delve configurations
+            delve = {
+                -- the path to the executable dlv which will be used for debugging.
+                -- by default, this is the "dlv" executable on your PATH.
+                path = path_delve,
+                -- time to wait for delve to initialize the debug session.
+                -- default to 20 seconds
+                initialize_timeout_sec = 20,
+                -- a string that defines the port to start delve debugger.
+                -- default to string "${port}" which instructs nvim-dap
+                -- to start the process in a random available port
+                port = "38697",
+                -- additional args to pass to dlv
+                args = {},
+                -- the build flags that are passed to delve.
+                -- defaults to empty string, but can be used to provide flags
+                -- such as "-tags=unit" to make sure the test suite is
+                -- compiled during debugging, for example.
+                -- passing build flags using args is ineffective, as those are
+                -- ignored by delve in dap mode.
+                -- build_flags = "",
+                -- whether the dlv process to be created detached or not. there is
+                -- an issue on Windows where this needs to be set to false
+                -- otherwise the dlv server creation will fail.
+                detached = true
             },
             enrich_config = function(finalConfig, on_config)
                 local final_config = vim.deepcopy(finalConfig)
@@ -150,7 +177,8 @@ return {
 
                 on_config(final_config)
             end,
-        }
+
+        })
     end,
     cond = Not_vscode()
 }
