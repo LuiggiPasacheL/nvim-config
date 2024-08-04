@@ -7,6 +7,9 @@ vim.keymap.set('n', "<C-l>", "<C-w>l")
 vim.keymap.set('n', "<C-k>", "<C-w>k")
 vim.keymap.set('n', "<C-j>", "<C-w>j")
 
+vim.keymap.set("n", "H", "<CMD>bprev<CR>")
+vim.keymap.set("n", "L", "<CMD>bnext<CR>")
+
 -- Move editors
 vim.keymap.set('n', "<C-S-h>", "<C-w>H")
 vim.keymap.set('n', "<C-S-l>", "<C-w>L")
