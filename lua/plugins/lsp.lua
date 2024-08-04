@@ -36,6 +36,7 @@ return {
             vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts)
             vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, opts)
             vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, opts)
+            vim.keymap.set("n", "<leader>ds", vim.diagnostic.open_float, opts)
             vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
             vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
             vim.keymap.set("n", "<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,

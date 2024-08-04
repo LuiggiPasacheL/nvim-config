@@ -31,6 +31,7 @@ return {
         vim.keymap.set('n', "<leader>o", "<CMD>Telescope treesitter<cr>")
         vim.keymap.set('n', "<leader>t", "<CMD>TodoTelescope<cr>")
         vim.keymap.set('n', "<leader>cc", "<CMD>Telescope colorscheme<cr>")
+        vim.keymap.set("n", "<leader>dt", "<CMD>Telescope diagnostics<cr>")
     end,
     cond = Not_vscode()
 }
