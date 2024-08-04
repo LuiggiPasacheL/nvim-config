@@ -2,7 +2,7 @@ local lsp_component = {
     function()
         local msg = "No Active Lsp"
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
             return msg
         end
@@ -18,7 +18,7 @@ local lsp_component = {
     icon = " LSP:",
     cond = function()
         local count = 0
-        for _ in pairs(vim.lsp.get_active_clients()) do count = count + 1 end
+        for _ in pairs(vim.lsp.get_clients()) do count = count + 1 end
         return count > 0
     end,
     on_click = function()
