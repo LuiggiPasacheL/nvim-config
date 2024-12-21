@@ -65,15 +65,16 @@ return {
                 lualine_z = {}
             },
             tabline = {
-                lualine_a = { "buffers" },
+                lualine_a = {},
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},
-                lualine_z = { "tabs" }
+                lualine_z = {}
             },
             winbar = {},
             inactive_winbar = {},
-            extensions = {}
+            -- extensions = {}
+            extensions = { 'quickfix', 'oil' }
         })
     end,
     cond = Not_vscode()
