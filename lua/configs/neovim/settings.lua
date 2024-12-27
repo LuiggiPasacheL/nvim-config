@@ -13,6 +13,38 @@ vim.opt.foldmethod     = "indent"
 vim.opt.foldenable     = true
 vim.opt.foldlevel      = 99
 
+-- On LspAttach enable autoformatting
+-- local lspAttachFormat = vim.api.nvim_create_augroup('lsp-attach-format', {})
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     group = lspAttachFormat,
+--     callback = function(args)
+--         local client_id = args.data.client_id
+--         local client = vim.lsp.get_client_by_id(client_id)
+--         local bufnr = args.buf
+--
+--         if not client.server_capabilities.documentFormattingProvider then
+--             return
+--         end
+--
+--         if client.name == 'tsserver' then
+--             return
+--         end
+--
+--         vim.api.nvim_create_autocmd('BufWritePre', {
+--             group = lspAttachFormat,
+--             buffer = bufnr,
+--             callback = function()
+--                 vim.lsp.buf.format {
+--                     async = false,
+--                     filter = function(c)
+--                         return c.id == client.id
+--                     end,
+--                 }
+--             end,
+--         })
+--     end,
+-- })
+
 -- Enable treesitter highlight after 100ms vimEnter
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
     callback = function()
