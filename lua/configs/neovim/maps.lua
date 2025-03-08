@@ -28,8 +28,6 @@ vim.keymap.set('n', "<leader>E", "<CMD>Oil<CR>")
 
 -- Git
 vim.keymap.set('n', "<leader>g", "<CMD>vertical rightbelow G<CR>")
-vim.keymap.set('n', "<leader>lg", "<CMD>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
-    { desc = "Tmux Git Go" })
 
 -- Restart LSP
 vim.keymap.set('n', "<leader>r", "<CMD>LspRestart<cr>")
