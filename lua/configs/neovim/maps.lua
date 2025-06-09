@@ -10,9 +10,6 @@ vim.keymap.set('n', "<C-j>", "<C-w>j")
 vim.keymap.set("n", "H", "<CMD>bprev<CR>")
 vim.keymap.set("n", "L", "<CMD>bnext<CR>")
 
--- Docs
-vim.keymap.set("n", "<leader>d", "<CMD>DevdocsOpenFloat<CR>")
-
 -- Move editors
 vim.keymap.set('n', "<C-S-h>", "<C-w>H")
 vim.keymap.set('n', "<C-S-l>", "<C-w>L")
