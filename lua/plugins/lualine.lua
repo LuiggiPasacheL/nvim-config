@@ -22,7 +22,7 @@ local lsp_component = {
         return count > 0
     end,
     on_click = function()
-        vim.cmd([[LspInfo]])
+        vim.cmd([[checkhealth lsp]])
     end
 }
 
